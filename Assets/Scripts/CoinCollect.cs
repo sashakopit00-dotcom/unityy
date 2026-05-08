@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CoinCollect : MonoBehaviour
 {
+    [SerializeField] private GameUI gameUI;
+    [SerializeField] private int scoreValue = 10;
+
     private void OnTriggerEnter(Collider other) 
     {
         if (!other.CompareTag("Player")) return;
 
+        gameUI.UpdateScore(scoreValue);
         Destroy(gameObject);
     }
 }
