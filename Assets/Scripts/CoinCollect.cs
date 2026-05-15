@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinCollect : MonoBehaviour
 {
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private AudioManage audioManage;
     [SerializeField] private int scoreValue = 10;
 
     private void OnTriggerEnter(Collider other) 
@@ -12,6 +13,7 @@ public class CoinCollect : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         gameUI.UpdateScore(scoreValue);
+        audioManage.PlaySound("coin");
         Destroy(gameObject);
     }
 }

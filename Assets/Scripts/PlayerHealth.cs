@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private GameUI gameUI;
+    [SerializeField] private AudioManage audioManage;
 
     private int _currentHealth;
 
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _currentHealth -= damage;
         gameUI.UpdateHealth(_currentHealth);
+        audioManage.PlaySound("hit");
         if (_currentHealth <= 0)
         {
             Debug.Log("Игрок погиб");
